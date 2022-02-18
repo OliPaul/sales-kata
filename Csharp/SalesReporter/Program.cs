@@ -1,6 +1,6 @@
 ﻿public static class Program  
 {
-	public static void printAction(string[] fileContentLines)
+	public static void PrintAction(string[] fileContentLines)
 	{
 		//get the header line    
 		string header = fileContentLines[0];    

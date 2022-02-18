@@ -1,7 +1,28 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4a3ea69a_002D2120_002D402f_002D9d59_002D41335d67d379/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SampleData_on_report_command" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.GoldenMaster.SampleData_on_report_command&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=837ca4e8_002Dcef5_002D485f_002Db49b_002Da8776ec21313/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GoldenMaster" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.GoldenMaster&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c0892443_002D6882_002D4a54_002D962b_002D0811df93d2b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="With_Sample_Data_On_Print_Should_Return_Header_With_Users_Orders" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.PrintActionTest.With_Sample_Data_On_Print_Should_Return_Header_With_Users_Orders&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f7d5bfc6_002De5b1_002D4347_002D9d9c_002D236cd95e6ce9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Project Location="/Users/paulolivier/RiderProjects/sales-reporter-kata/Csharp/SalesReporter.Cli.Tests" Presentation="&amp;lt;SalesReporterKata&amp;gt;\&amp;lt;SalesReporter.Cli.Tests&amp;gt;" /&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.GoldenMaster&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.PrintActionTest.With_Sample_Data_On_Print_Should_Return_Header_With_Users_Orders&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.PrintActionTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.ReportActionTest.With_Sample_Data_On_Report_Should_Return_Sales_Report&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::503C5229-B130-4E09-AA1C-DEDD80CB8009::net6.0::SalesReporter.Cli.Tests.ReportActionTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
 	</wpf:ResourceDictionary>

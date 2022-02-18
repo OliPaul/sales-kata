@@ -6,6 +6,8 @@ namespace SalesReporter.Cli.Tests;
 
 public class PrintActionTest
 {
+     
+    private string[] fileContentLines = File.ReadAllLines("./data.csv"); 
     
     [Fact]
     public void With_Sample_Data_On_Print_Should_Return_Header_With_Users_Orders()
@@ -13,11 +15,10 @@ public class PrintActionTest
         using var writer = new StringWriter();
         Console.SetOut(writer);
         Console.SetError(writer);
-        Program.Main(new string[]{"print","./data.csv"});
+        Program.PrintAction(fileContentLines);
         var sut = writer.ToString();
         Check.That(sut).IsEqualTo(
-            @$"=== Sales Viewer ===
-+----------------------------------------------------------------------------------------------+
+            @$"+----------------------------------------------------------------------------------------------+
 |          orderid |         userName |    numberOfItems |    totalOfBasket |        dateOfBuy |
 +----------------------------------------------------------------------------------------------+
 |                1 |            peter |                3 |           123.00 |       2021-11-30 |
