@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using NFluent;
 using Xunit;
-using SalesReporter.Cli;
 
 namespace SalesReporter.Cli.Tests;
 
