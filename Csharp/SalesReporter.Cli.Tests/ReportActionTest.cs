@@ -13,16 +13,14 @@ public class ReportActionTest
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string output = Program.reportAction(fileContentLines);
         Check.That(output).IsEqualTo(
-            @$"
-+---------------------------------------------+
+            @$"+---------------------------------------------+
 |                Number of sales |          5 |
 |              Number of clients |          3 |
 |               Total items sold |         11 |
 |             Total sales amount |    1441.84 |
 |            Average amount/sale |     288.37 |
 |             Average item price |     131.08 |
-+---------------------------------------------+
-"
++---------------------------------------------+"
         );
     }
 
@@ -32,6 +30,16 @@ public class ReportActionTest
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
         int numberOfSales = Program.numberOfSales(dataLines);
+        Check.That(numberOfSales).IsEqualTo(dataLines.Length);
+    }
+    
+    [Fact]
+    public void With_Sample_Data_Average_Amount_Should_Return_Total_Sales_Amount_Divided_By_Number_Of_Sales()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        int numberOfSales = Program.numberOfSales(dataLines);
+        double averageAmount = Program.averageAmount(0, numberOfSales);
         Check.That(numberOfSales).IsEqualTo(dataLines.Length);
     }
 }

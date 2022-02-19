@@ -42,7 +42,7 @@ public class GoldenMaster
             @$"=== Sales Viewer ===
 +---------------------------------------------+
 |                Number of sales |          5 |
-|              Number of clients |          0 |
+|              Number of clients |          3 |
 |               Total items sold |         11 |
 |             Total sales amount |    1441.84 |
 |            Average amount/sale |     288.37 |

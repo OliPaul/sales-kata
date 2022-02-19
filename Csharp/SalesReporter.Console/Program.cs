@@ -17,7 +17,7 @@
 		var headerString  = String.Join(  " | ",   
 			columnInfos.Select(x=>x.name).Select(  
 				(val,ind) => val.PadLeft(16)));  
-		output += "\n+" + new String('-', headerString.Length + 2) + "+\n";  
+		output += "+" + new String('-', headerString.Length + 2) + "+\n";  
 		output += "| " + headerString + " |\n";  
 		output += "+" + new String('-', headerString.Length +2 ) + "+\n";  
 
@@ -32,7 +32,7 @@
 			output += $"| {tableLine} |\n";  
 		}
 			
-		output += "+" + new String('-', headerString.Length+2) + "+\n";  
+		output += "+" + new String('-', headerString.Length+2) + "+";  
 		return output;
 	}
 
@@ -62,17 +62,17 @@
 			last = DateTime.Parse(cells[4]) > last ? DateTime.Parse(cells[4]) : last;    
 		}   
 		//we compute the average basket amount per sale    
-		averageAmount = Math.Round(totalSalesAmount / numberOfSales,2);    
+		averageAmount = Program.averageAmount(totalSalesAmount, numberOfSales);    
 		//we compute the average item price sold    
 		averageItemsPrice = Math.Round(totalSalesAmount / totalItemsSold,2);    
-		output += $"\n+{new String('-',45)}+\n";  
+		output += $"+{new String('-',45)}+\n";  
 		output += $"| {" Number of sales".PadLeft(30)} | {numberOfSales.ToString().PadLeft(10)} |\n";  
 		output += $"| {" Number of clients".PadLeft(30)} | {clients.Count.ToString().PadLeft(10)} |\n";  
 		output += $"| {" Total items sold".PadLeft(30)} | {totalItemsSold.ToString().PadLeft(10)} |\n";  
 		output += $"| {" Total sales amount".PadLeft(30)} | {Math.Round(totalSalesAmount,2).ToString().PadLeft(10)} |\n";  
 		output += $"| {" Average amount/sale".PadLeft(30)} | {averageAmount.ToString().PadLeft(10)} |\n";  
 		output += $"| {" Average item price".PadLeft(30)} | {averageItemsPrice.ToString().PadLeft(10)} |\n";  
-		output += $"+{new String('-',45)}+\n";
+		output += $"+{new String('-',45)}+";
 
 		return output;
 	}
@@ -80,6 +80,11 @@
 	public static int numberOfSales(string[] salesData)
 	{
 		return salesData.Length;
+	}
+
+	public static double averageAmount(double totalSalesAmount, int numberOfSales)
+	{
+		return Math.Round(totalSalesAmount / numberOfSales, 2);
 	}
 
 	public static void invalidAction()
@@ -102,12 +107,12 @@
 		//if action is print    
 		if (action == "print")
 		{
-			printAction(fileContentLines);
+			Console.WriteLine(printAction(fileContentLines));
 		}   
 		// if action is report 
 		else if (action == "report")
 		{
-			reportAction(fileContentLines);
+			Console.WriteLine(reportAction(fileContentLines));
 		}
 		else
 		{
