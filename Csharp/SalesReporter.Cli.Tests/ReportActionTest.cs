@@ -61,4 +61,13 @@ public class ReportActionTest
         int totalItemsSold = Program.getTotalItemsSold(dataLines);
         Check.That(totalItemsSold).IsEqualTo(11);
     }
+    
+    [Fact]
+    public void With_Sample_Data_Get_Total_Sales_Amount_Should_Return_Total_Sales_Amount()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        double totalSalesAmount = Program.getTotalSalesAmount(dataLines);
+        Check.That(totalSalesAmount).IsEqualTo(1441.8400000000001);
+    }
 }

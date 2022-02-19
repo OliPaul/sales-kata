@@ -46,20 +46,14 @@
 		double averageAmount = 0.0, averageItemsPrice = 0.0, totalSalesAmount = 0;    
 		HashSet<string> clients = new HashSet<string>();    
 		DateTime last = DateTime.MinValue;    
-		//do the counts for each line  
 		// Get Total of sales
 		numberOfSales = getNumberOfSales(dataLines);
+		// Get clients list
 		clients = getClientList(dataLines);
+		// Get total items sold
 		totalItemsSold = getTotalItemsSold(dataLines);
-		foreach (var data in dataLines)    
-		{ 
-			//get the cell values for the line    
-			var cells = data.Split(',');
-			    
-			totalSalesAmount += double.Parse(cells[3]);//we sum the amount of each sell    
-			//we compare the current cell date with the stored one and pick the higher
-			last = DateTime.Parse(cells[4]) > last ? DateTime.Parse(cells[4]) : last;    
-		}   
+		// Get sales total amount
+		totalSalesAmount = getTotalSalesAmount(dataLines);
 		//we compute the average basket amount per sale    
 		averageAmount = getAverageAmount(totalSalesAmount, numberOfSales);    
 		//we compute the average item price sold    
@@ -97,6 +91,19 @@
 		}
 
 		return totalItemsSold;
+	}
+	
+	public static double getTotalSalesAmount(string[] orderData)
+	{
+		double totalSalesAmount = 0;
+		foreach (var order in orderData)
+		{
+			//get the cell values for the line    
+			var cells = order.Split(',');
+			totalSalesAmount += double.Parse(cells[3]);//we sum the amount of each sell 
+		}
+
+		return totalSalesAmount;
 	}
 	
 	public static HashSet<string> getClientList(string[] orderData)
