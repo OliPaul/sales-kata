@@ -8,15 +8,12 @@ public class PrintActionTest
 {
     
     [Fact]
-    public void With_Sample_Data_On_Print_Should_Return_Header_With_Users_Orders()
+    public void With_Sample_Data_On_Print_Should_Return_Users_Orders()
     {
-        using var writer = new StringWriter();
-        Console.SetOut(writer);
-        Console.SetError(writer);
-        Program.Main(new string[]{"print","./data.csv"});
-        var sut = writer.ToString();
-        Check.That(sut).IsEqualTo(
-            @$"=== Sales Viewer ===
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string output = Program.printAction(fileContentLines);
+        Check.That(output).IsEqualTo(
+            @$"
 +----------------------------------------------------------------------------------------------+
 |          orderid |         userName |    numberOfItems |    totalOfBasket |        dateOfBuy |
 +----------------------------------------------------------------------------------------------+
