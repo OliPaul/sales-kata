@@ -31,7 +31,7 @@ public class ReportActionTest
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
         int numberOfSales = Program.getNumberOfSales(dataLines);
-        Check.That(numberOfSales).IsEqualTo(dataLines.Length);
+        Check.That(numberOfSales).IsEqualTo(5);
     }
     
     [Fact]
