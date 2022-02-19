@@ -40,8 +40,9 @@ public class ReportActionTest
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
         int numberOfSales = Program.getNumberOfSales(dataLines);
-        double averageAmount = Program.getAverageAmount(0, numberOfSales);
-        Check.That(numberOfSales).IsEqualTo(dataLines.Length);
+        int totalItemsSold = Program.getTotalItemsSold(dataLines);
+        double averageAmount = Program.getAverageAmount(totalItemsSold, numberOfSales);
+        Check.That(averageAmount).IsEqualTo(2.2);
     }
 
     [Fact]
