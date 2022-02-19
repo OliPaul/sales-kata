@@ -46,12 +46,13 @@
 		double averageAmount = 0.0, averageItemsPrice = 0.0, totalSalesAmount = 0;    
 		HashSet<string> clients = new HashSet<string>();    
 		DateTime last = DateTime.MinValue;    
-		//do the counts for each line    
+		//do the counts for each line  
+		// Get Total of sales
+		numberOfSales = Program.numberOfSales(dataLines);
 		foreach (var data in dataLines)    
 		{ 
 			//get the cell values for the line    
-			var cells = data.Split(',');    
-			numberOfSales++;//increment the total of sales    
+			var cells = data.Split(',');      
 			//to count the number of clients, we put only distinct names in a hashset 
 			//then we'll count the number of entries 
 			if (!clients.Contains(cells[1])) clients.Add(cells[1]);    
@@ -74,6 +75,11 @@
 		output += $"+{new String('-',45)}+\n";
 
 		return output;
+	}
+
+	public static int numberOfSales(string[] salesData)
+	{
+		return salesData.Length;
 	}
 
 	public static void invalidAction()

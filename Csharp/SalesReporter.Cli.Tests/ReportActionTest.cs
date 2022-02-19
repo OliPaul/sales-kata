@@ -25,4 +25,13 @@ public class ReportActionTest
 "
         );
     }
+
+    [Fact]
+    public void With_Sample_Data_Number_Of_Sales_Should_Return_Sales_Data_Length()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        int numberOfSales = Program.numberOfSales(dataLines);
+        Check.That(numberOfSales).IsEqualTo(dataLines.Length);
+    }
 }
