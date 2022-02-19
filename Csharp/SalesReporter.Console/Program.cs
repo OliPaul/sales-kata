@@ -57,7 +57,7 @@
 		//we compute the average basket amount per sale    
 		averageAmount = getAverageAmount(totalSalesAmount, numberOfSales);    
 		//we compute the average item price sold    
-		averageItemsPrice = Math.Round(totalSalesAmount / totalItemsSold,2);    
+		averageItemsPrice = getAverageItemsPrice(totalSalesAmount, totalItemsSold);  
 		output += $"+{new String('-',45)}+\n";  
 		output += $"| {" Number of sales".PadLeft(30)} | {numberOfSales.ToString().PadLeft(10)} |\n";  
 		output += $"| {" Number of clients".PadLeft(30)} | {clients.Count.ToString().PadLeft(10)} |\n";  
@@ -78,6 +78,11 @@
 	public static double getAverageAmount(double totalSalesAmount, int numberOfSales)
 	{
 		return Math.Round(totalSalesAmount / numberOfSales, 2);
+	}
+	
+	public static double getAverageItemsPrice(double totalSalesAmount, int totalItemsSold)
+	{
+		return Math.Round(totalSalesAmount / totalItemsSold, 2);
 	}
 
 	public static int getTotalItemsSold(string[] orderData)

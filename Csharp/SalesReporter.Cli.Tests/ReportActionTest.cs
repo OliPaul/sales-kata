@@ -40,6 +40,16 @@ public class ReportActionTest
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
         int numberOfSales = Program.getNumberOfSales(dataLines);
+        double totalSalesAmount = Program.getTotalSalesAmount(dataLines);
+        double averageAmount = Program.getAverageAmount(totalSalesAmount, numberOfSales);
+        Check.That(averageAmount).IsEqualTo(288.37);
+    }
+    
+    public void With_Sample_Data_Average_Items_Price_Should_Return_Total_Sales_Amount_Divided_By_Total_Items_Sold()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        int numberOfSales = Program.getNumberOfSales(dataLines);
         int totalItemsSold = Program.getTotalItemsSold(dataLines);
         double averageAmount = Program.getAverageAmount(totalItemsSold, numberOfSales);
         Check.That(averageAmount).IsEqualTo(2.2);
