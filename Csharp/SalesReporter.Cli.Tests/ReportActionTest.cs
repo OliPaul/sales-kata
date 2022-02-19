@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using NFluent;
 using Xunit;
@@ -41,5 +42,14 @@ public class ReportActionTest
         int numberOfSales = Program.numberOfSales(dataLines);
         double averageAmount = Program.averageAmount(0, numberOfSales);
         Check.That(numberOfSales).IsEqualTo(dataLines.Length);
+    }
+
+    [Fact]
+    public void With_Sample_Data_Get_Client_List_Should_Return_Client_List_Without_Duplicate()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        HashSet<String> clients = Program.getClientList(dataLines);
+        Check.That(clients).IsEqualTo(new HashSet<string>(){" peter", " paul", " john"});
     }
 }

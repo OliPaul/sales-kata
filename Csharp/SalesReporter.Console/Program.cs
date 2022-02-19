@@ -49,13 +49,11 @@
 		//do the counts for each line  
 		// Get Total of sales
 		numberOfSales = Program.numberOfSales(dataLines);
+		clients = Program.getClientList(dataLines);
 		foreach (var data in dataLines)    
 		{ 
 			//get the cell values for the line    
-			var cells = data.Split(',');      
-			//to count the number of clients, we put only distinct names in a hashset 
-			//then we'll count the number of entries 
-			if (!clients.Contains(cells[1])) clients.Add(cells[1]);    
+			var cells = data.Split(',');
 			totalItemsSold += int.Parse(cells[2]);//we sum the total of items sold here    
 			totalSalesAmount += double.Parse(cells[3]);//we sum the amount of each sell    
 			//we compare the current cell date with the stored one and pick the higher
@@ -85,6 +83,22 @@
 	public static double averageAmount(double totalSalesAmount, int numberOfSales)
 	{
 		return Math.Round(totalSalesAmount / numberOfSales, 2);
+	}
+
+	public static HashSet<string> getClientList(string[] orderData)
+	{
+		HashSet<string> clients = new HashSet<string>();
+		foreach (var order in orderData)
+		{
+			//get the cell values for the line    
+			var cells = order.Split(',');
+			//to count the number of clients, we put only distinct names in a hashset 
+			//then we'll count the number of entries 
+			if (!clients.Contains(cells[1])) 
+				clients.Add(cells[1]);
+		}
+
+		return clients;
 	}
 
 	public static void invalidAction()
