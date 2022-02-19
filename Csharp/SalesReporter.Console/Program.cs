@@ -44,8 +44,7 @@
 		//declare variables for our conters    
 		int numberOfSales = 0, totalItemsSold = 0;    
 		double averageAmount = 0.0, averageItemsPrice = 0.0, totalSalesAmount = 0;    
-		HashSet<string> clients = new HashSet<string>();    
-		DateTime last = DateTime.MinValue;    
+		HashSet<string> clients = new HashSet<string>();   
 		// Get Total of sales
 		numberOfSales = getNumberOfSales(dataLines);
 		// Get clients list
