@@ -48,8 +48,8 @@
 		DateTime last = DateTime.MinValue;    
 		//do the counts for each line  
 		// Get Total of sales
-		numberOfSales = Program.numberOfSales(dataLines);
-		clients = Program.getClientList(dataLines);
+		numberOfSales = getNumberOfSales(dataLines);
+		clients = getClientList(dataLines);
 		foreach (var data in dataLines)    
 		{ 
 			//get the cell values for the line    
@@ -60,7 +60,7 @@
 			last = DateTime.Parse(cells[4]) > last ? DateTime.Parse(cells[4]) : last;    
 		}   
 		//we compute the average basket amount per sale    
-		averageAmount = Program.averageAmount(totalSalesAmount, numberOfSales);    
+		averageAmount = Program.getAverageAmount(totalSalesAmount, numberOfSales);    
 		//we compute the average item price sold    
 		averageItemsPrice = Math.Round(totalSalesAmount / totalItemsSold,2);    
 		output += $"+{new String('-',45)}+\n";  
@@ -75,12 +75,12 @@
 		return output;
 	}
 
-	public static int numberOfSales(string[] salesData)
+	public static int getNumberOfSales(string[] salesData)
 	{
 		return salesData.Length;
 	}
 
-	public static double averageAmount(double totalSalesAmount, int numberOfSales)
+	public static double getAverageAmount(double totalSalesAmount, int numberOfSales)
 	{
 		return Math.Round(totalSalesAmount / numberOfSales, 2);
 	}

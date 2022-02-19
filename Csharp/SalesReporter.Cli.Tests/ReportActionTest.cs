@@ -30,7 +30,7 @@ public class ReportActionTest
     {
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
-        int numberOfSales = Program.numberOfSales(dataLines);
+        int numberOfSales = Program.getNumberOfSales(dataLines);
         Check.That(numberOfSales).IsEqualTo(dataLines.Length);
     }
     
@@ -39,8 +39,8 @@ public class ReportActionTest
     {
         string[] fileContentLines = File.ReadAllLines("./data.csv");
         string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
-        int numberOfSales = Program.numberOfSales(dataLines);
-        double averageAmount = Program.averageAmount(0, numberOfSales);
+        int numberOfSales = Program.getNumberOfSales(dataLines);
+        double averageAmount = Program.getAverageAmount(0, numberOfSales);
         Check.That(numberOfSales).IsEqualTo(dataLines.Length);
     }
 
