@@ -52,4 +52,13 @@ public class ReportActionTest
         HashSet<String> clients = Program.getClientList(dataLines);
         Check.That(clients).IsEqualTo(new HashSet<string>(){" peter", " paul", " john"});
     }
+
+    [Fact]
+    public void With_Sample_Data_Get_Total_Items_Sold_Should_Return_Total_Of_Items_Sold()
+    {
+        string[] fileContentLines = File.ReadAllLines("./data.csv");
+        string[] dataLines = fileContentLines[1..(fileContentLines.Length)];
+        int totalItemsSold = Program.getTotalItemsSold(dataLines);
+        Check.That(totalItemsSold).IsEqualTo(11);
+    }
 }

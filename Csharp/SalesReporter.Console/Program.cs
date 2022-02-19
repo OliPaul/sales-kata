@@ -50,17 +50,18 @@
 		// Get Total of sales
 		numberOfSales = getNumberOfSales(dataLines);
 		clients = getClientList(dataLines);
+		totalItemsSold = getTotalItemsSold(dataLines);
 		foreach (var data in dataLines)    
 		{ 
 			//get the cell values for the line    
 			var cells = data.Split(',');
-			totalItemsSold += int.Parse(cells[2]);//we sum the total of items sold here    
+			    
 			totalSalesAmount += double.Parse(cells[3]);//we sum the amount of each sell    
 			//we compare the current cell date with the stored one and pick the higher
 			last = DateTime.Parse(cells[4]) > last ? DateTime.Parse(cells[4]) : last;    
 		}   
 		//we compute the average basket amount per sale    
-		averageAmount = Program.getAverageAmount(totalSalesAmount, numberOfSales);    
+		averageAmount = getAverageAmount(totalSalesAmount, numberOfSales);    
 		//we compute the average item price sold    
 		averageItemsPrice = Math.Round(totalSalesAmount / totalItemsSold,2);    
 		output += $"+{new String('-',45)}+\n";  
@@ -85,6 +86,19 @@
 		return Math.Round(totalSalesAmount / numberOfSales, 2);
 	}
 
+	public static int getTotalItemsSold(string[] orderData)
+	{
+		int totalItemsSold = 0;
+		foreach (var order in orderData)
+		{
+			//get the cell values for the line    
+			var cells = order.Split(',');
+			totalItemsSold += int.Parse(cells[2]);//we sum the total of items sold here
+		}
+
+		return totalItemsSold;
+	}
+	
 	public static HashSet<string> getClientList(string[] orderData)
 	{
 		HashSet<string> clients = new HashSet<string>();
